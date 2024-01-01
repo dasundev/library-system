@@ -71,44 +71,6 @@ require_once "process.php";
     </table>
 </div>
 
-<!-- Assign Fine Modal -->
-<div class="modal fade" id="assignFineModal" tabindex="-1" aria-labelledby="assignFineModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="assignFineModalLabel">Assign Fine</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="fineId" class="form-label">Fine ID</label>
-                    <input id="fineId" name="fine_id" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="memberId" class="form-label">Member ID</label>
-                    <input id="memberId" name="member_id" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="bookId" class="form-label">Book ID</label>
-                    <input id="bookId" name="book_id" type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="amount" class="form-label">Fine Amount (Rs)</label>
-                    <input id="amount" name="amount" type="number" min="2" max="500" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input id="date" name="date" type="datetime-local" class="form-control">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
