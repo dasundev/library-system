@@ -1,3 +1,6 @@
+<?php
+require_once "process.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +16,8 @@
 <?php include './../shared/navbar.php'; ?>
 
 <div class="container-lg mt-4">
+    <?php include './../shared/alert.php'; ?>
+
     <div class="mb-3 d-flex justify-content-between">
         <h1 class="fs-2">Fines</h1>
         <button type="button" class="btn btn-primary d-inline-flex align-items-center justify-content-between gap-2" data-bs-toggle="modal" data-bs-target="#assignFineModal">
@@ -22,26 +27,46 @@
             Assign Fine
         </button>
     </div>
+
+    <?php
+    $sql = "
+    SELECT fine.fine_id, fine.member_id, member.first_name, member.last_name, book.book_name, fine.fine_amount, fine.fine_date_modified
+    FROM fine 
+    JOIN member ON fine.member_id = member.member_id
+    JOIN book ON fine.book_id = book.book_id
+    ";
+
+    $result = $database->query($sql) or die($database->error);
+    ?>
+
     <table class="table">
         <thead class="table-light">
-        <tr>
-            <th>Fine ID</th>
-            <th>Member ID</th>
-            <th>Member Name</th>
-            <th>Book Name</th>
-            <th>Fine Amount</th>
-            <th>Date</th>
-        </tr>
+            <tr>
+                <th>Fine ID</th>
+                <th>Member ID</th>
+                <th>Member Name</th>
+                <th>Book Name</th>
+                <th>Fine Amount</th>
+                <th>Date</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>34</td>
-            <td>5</td>
-            <td>Dasun Tharanga</td>
-            <td>Harry Potter 1</td>
-            <td>Rs.<?= number_format(1000) ?></td>
-            <td>2024-01-01 20:10:02</td>
-        </tr>
+        <?php if ($result->num_rows > 0) { ?>
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?= $row['fine_id'] ?></td>
+                    <td><?= $row['member_id'] ?></td>
+                    <td><?= $row['first_name']." ".$row['last_name'] ?></td>
+                    <td><?= $row['book_name'] ?></td>
+                    <td>Rs.<?= number_format($row['fine_amount']) ?></td>
+                    <td><?= $row['fine_date_modified'] ?></td>
+                </tr>
+            <?php } ?>
+        <?php } else { ?>
+            <tr>
+                <td colspan="6" class="text-center text-secondary">No records are available!</td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 </div>
