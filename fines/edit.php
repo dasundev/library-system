@@ -33,7 +33,7 @@ require_once "process.php";
     </nav>
 
     <div class="mb-3">
-        <h1 class="fs-2">Assign Fine</h1>
+        <h1 class="fs-2">Edit Fine</h1>
     </div>
 
     <?php
