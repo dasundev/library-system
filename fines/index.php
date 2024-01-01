@@ -47,7 +47,7 @@ require_once "process.php";
                 <th>Member Name</th>
                 <th>Book Name</th>
                 <th>Fine Amount</th>
-                <th>Date</th>
+                <th>Date Modified</th>
             </tr>
         </thead>
         <tbody>
