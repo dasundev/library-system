@@ -12,10 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $sql = "INSERT INTO fine (fine_id, member_id, book_id, fine_amount, fine_date_modified) VALUES ('$fineID', '$memberID', '$bookID', '$fineAmount', '$date')";
 
-    $database->query($sql) or die($database->error);
+    try {
+        $database->query($sql);
 
-    $_SESSION['message'] = "Fine added successfully.";
-    $_SESSION['message_type'] = "success";
+        $_SESSION['message'] = "Fine added successfully.";
+        $_SESSION['message_type'] = "success";
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->getMessage();
+        $_SESSION['message_type'] = "danger";
+    }
 
     header("Location: /fines");
 }
