@@ -46,3 +46,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
 
     header("Location: /fines");
 }
+
+if (isset($_GET['delete'])) {
+    $fineID = $_GET['fineId'];
+
+    $sql = "DELETE FROM fine WHERE fine_id = '$fineID'";
+
+    try {
+        $database->query($sql);
+
+        $_SESSION['message'] = "Fine deleted successfully.";
+        $_SESSION['message_type'] = "success";
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->getMessage();
+        $_SESSION['message_type'] = "danger";
+    }
+
+    header("Location: /fines");
+}
