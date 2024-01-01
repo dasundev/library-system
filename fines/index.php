@@ -77,7 +77,7 @@ require_once "process.php";
             <?php } ?>
         <?php } else { ?>
             <tr>
-                <td colspan="6" class="text-center text-secondary">No records are available!</td>
+                <td colspan="7" class="text-center text-secondary">No records are available!</td>
             </tr>
         <?php } ?>
         </tbody>
