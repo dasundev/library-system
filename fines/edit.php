@@ -46,7 +46,7 @@ require_once "process.php";
     $row = $result->fetch_row();
     ?>
 
-    <form action="process.php" method="post">
+    <form action="process.php?update=true&fineId=<?= $row[0] ?>" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
                 <label for="fineId" class="form-label">Fine ID</label>
@@ -54,11 +54,11 @@ require_once "process.php";
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="memberId" class="form-label">Member ID</label>
-                <input id="memberId" name="member_id" type="text" class="form-control" value="<?= $row[1] ?>" required>
+                <input id="memberId" name="member_id" type="text" class="form-control" value="<?= $row[2] ?>" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="bookId" class="form-label">Book ID</label>
-                <input id="bookId" name="book_id" type="text" class="form-control" value="<?= $row[2] ?>" required>
+                <input id="bookId" name="book_id" type="text" class="form-control" value="<?= $row[1] ?>" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="amount" class="form-label">Fine Amount (Rs)</label>

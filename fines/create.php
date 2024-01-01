@@ -36,7 +36,7 @@ require_once "process.php";
         <h1 class="fs-2">Assign Fine</h1>
     </div>
 
-    <form action="process.php" method="post">
+    <form action="process.php?create=true" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
                 <label for="fineId" class="form-label">Fine ID</label>
