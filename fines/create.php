@@ -35,27 +35,27 @@ require_once "process.php";
         </a>
     </div>
 
-    <form>
+    <form action="process.php" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
                 <label for="fineId" class="form-label">Fine ID</label>
-                <input id="fineId" name="fine_id" type="text" class="form-control">
+                <input id="fineId" name="fine_id" type="text" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="memberId" class="form-label">Member ID</label>
-                <input id="memberId" name="member_id" type="text" class="form-control">
+                <input id="memberId" name="member_id" type="text" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="bookId" class="form-label">Book ID</label>
-                <input id="bookId" name="book_id" type="text" class="form-control">
+                <input id="bookId" name="book_id" type="text" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="amount" class="form-label">Fine Amount (Rs)</label>
-                <input id="amount" name="amount" type="number" min="2" max="500" class="form-control">
+                <input id="amount" name="amount" type="number" min="2" max="500" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input id="date" name="date" type="datetime-local" class="form-control">
+                <input id="date" name="date" type="datetime-local" class="form-control" required>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
