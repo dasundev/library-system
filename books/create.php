@@ -36,6 +36,12 @@ require_once "process.php";
         <h1 class="fs-2">Add Book</h1>
     </div>
 
+    <?php
+    $sql = "SELECT * FROM bookcategory";
+
+    $result = $database->query($sql) or die($database->error);
+    ?>
+
     <form action="process.php?create=true" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
@@ -48,7 +54,11 @@ require_once "process.php";
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="bookCategory" class="form-label">Book Category</label>
-                <input id="bookCategory" name="category_id" type="text" class="form-control" required>
+                <select id="bookCategory" name="category_id" type="text" class="form-control" required>
+                    <?php while($row = $result->fetch_assoc()) { ?>
+                        <option value="<?= $row['category_id'] ?>"><?= $row['category_Name'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>

@@ -44,6 +44,10 @@ require_once "process.php";
     $result = $database->query($sql) or die($database->error);
 
     $row = $result->fetch_row();
+
+    $sql = "SELECT * FROM bookcategory";
+
+    $categoryResult = $database->query($sql) or die($database->error);
     ?>
 
     <form action="process.php?update=true&bookId=<?= $row[0] ?>" method="post">
@@ -58,7 +62,11 @@ require_once "process.php";
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="bookCategory" class="form-label">Book Category</label>
-                <input id="bookCategory" name="category_id" type="text" class="form-control" value="<?= $row[2] ?>" required>
+                <select id="bookCategory" name="category_id" type="text" class="form-control" required>
+                    <?php while($categoryRow = $categoryResult->fetch_assoc()) { ?>
+                        <option value="<?= $categoryRow['category_id'] ?>" <?= $categoryRow['category_id'] == $row[2] ? 'selected' : null ?>><?= $categoryRow['category_Name'] ?></option>
+                    <?php } ?>
+                </select>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
