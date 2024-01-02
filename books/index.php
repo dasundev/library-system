@@ -49,7 +49,7 @@ require_once "process.php";
                 <tr>
                     <td><?= $row['book_id'] ?></td>
                     <td><?= $row['book_name'] ?></td>
-                    <td><?= $row['category_id'] ?></td>
+                    <td><?= $row['category_Name'] ?></td>
             
                      
                     <td>
