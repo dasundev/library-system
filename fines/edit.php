@@ -50,7 +50,7 @@ require_once "process.php";
         <div class="row">
             <div class="col-lg-5 mb-3">
                 <label for="fineId" class="form-label">Fine ID</label>
-                <input id="fineId" name="fine_id" type="text" class="form-control" value="<?= $row[0] ?>" required>
+                <input id="fineId" name="fine_id" type="text" class="form-control" value="<?= $row[0] ?>" readonly required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="memberId" class="form-label">Member ID</label>
