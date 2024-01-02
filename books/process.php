@@ -42,3 +42,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
 
     header("Location: /books");
 }
+
+if (isset($_GET['delete'])) {
+    $bookId = $_GET['bookId'];
+
+    $sql = "DELETE FROM book WHERE book_id = '$bookId'";
+
+    try {
+        $database->query($sql);
+
+        $_SESSION['message'] = "Book deleted successfully.";
+        $_SESSION['message_type'] = "success";
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->getMessage();
+        $_SESSION['message_type'] = "danger";
+    }
+
+    header("Location: /books");
+}
