@@ -48,7 +48,7 @@ require_once "process.php";
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="bookCategory" class="form-label">Book Category</label>
-                <input id="bookCategory" name="book_category_id" type="text" class="form-control" required>
+                <input id="bookCategory" name="category_id" type="text" class="form-control" required>
             </div>
              
         </div>
