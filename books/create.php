@@ -50,7 +50,6 @@ require_once "process.php";
                 <label for="bookCategory" class="form-label">Book Category</label>
                 <input id="bookCategory" name="category_id" type="text" class="form-control" required>
             </div>
-             
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
