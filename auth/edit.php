@@ -20,8 +20,8 @@ require_once "process.php";
 
     <nav class="d-flex align-items-center justify-content-between" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/fines">Fines</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Fine</li>
+            <li class="breadcrumb-item"><a href="/fines">Users</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit User</li>
         </ol>
 
         <a href="/fines" class="btn btn-primary d-inline-flex align-self-start align-items-center justify-content-between gap-2">
@@ -33,13 +33,13 @@ require_once "process.php";
     </nav>
 
     <div class="mb-3">
-        <h1 class="fs-2">Edit Fine</h1>
+        <h1 class="fs-2">Edit User</h1>
     </div>
 
     <?php
-    $fineId = $_GET['fineId'];
+    $userId = $_GET['userId'];
 
-    $sql = "SELECT * FROM fine WHERE fine_id = '$fineId'";
+    $sql = "SELECT * FROM user WHERE user_id = '$userId'";
 
     $result = $database->query($sql) or die($database->error);
 
@@ -49,24 +49,28 @@ require_once "process.php";
     <form action="process.php?update=true&fineId=<?= $row[0] ?>" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
-                <label for="fineId" class="form-label">Fine ID</label>
-                <input id="fineId" name="fine_id" type="text" class="form-control" value="<?= $row[0] ?>" readonly required>
+                <label for="userId" class="form-label">User ID</label>
+                <input id="userId" name="user_id" type="text" class="form-control" value="<?= $row[0] ?>" readonly required>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="memberId" class="form-label">Member ID</label>
-                <input id="memberId" name="member_id" type="text" class="form-control" value="<?= $row[2] ?>" required>
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="email" class="form-control" value="<?= $row[1] ?>" required>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="bookId" class="form-label">Book ID</label>
-                <input id="bookId" name="book_id" type="text" class="form-control" value="<?= $row[1] ?>" required>
+                <label for="firstname" class="form-label">First Name</label>
+                <input id="firstname" name="first_name" type="text" class="form-control" value="<?= $row[2] ?>" required>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="amount" class="form-label">Fine Amount (Rs)</label>
-                <input id="amount" name="amount" type="number" min="2" max="500" class="form-control" value="<?= $row[3] ?>" required>
+                <label for="lastname" class="form-label">Last Name</label>
+                <input id="lastname" name="last_name" type="text" class="form-control" value="<?= $row[3] ?>" required>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input id="date" name="date" type="datetime-local" class="form-control" value="<?= $row[4] ?>" required>
+                <label for="username" class="form-label">Username</label>
+                <input id="username" name="username" type="text" class="form-control" value="<?= $row[4] ?>" required>
+            </div>
+            <div class="col-lg-5 mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" max="8" class="form-control" value="<?= $row[5] ?>" required>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
