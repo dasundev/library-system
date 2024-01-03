@@ -9,7 +9,7 @@
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/books') ? 'active' : null ?>" href="/books">Books</a>
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/categories') ? 'active' : null ?>" href="/categories">Categories</a>
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/members') ? 'active' : null ?>" href="/members">Members</a>
-                <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/borrowed-books') ? 'active' : null ?>" href="/borrowed-books">Borrowed Books</a>
+                <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/book-borrowers') ? 'active' : null ?>" href="/book-borrowers">Book Borrowers</a>
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/fines') ? 'active' : null ?>" href="/fines">Fines</a>
             </div>
             <div class="navbar-nav">
