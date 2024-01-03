@@ -33,7 +33,7 @@ require_once "process.php";
     </nav>
 
     <div class="mb-3">
-        <h1 class="fs-2">Edit Book Categories</h1>
+        <h1 class="fs-2">Edit Book Category</h1>
     </div>
 
     <?php
@@ -63,7 +63,7 @@ require_once "process.php";
         <div class="row mb-3">
             <div class="col-lg-5">
                 <label for="date_modified" class="form-label">Date Modified</label>
-                <input id="date_modified" name="date_modified" type="datetime-local" class="form-control" value="<?= date('Y-m-d h:i:s A', strtotime($row[2])) ?>" required>
+                <input id="date_modified" name="date_modified" type="datetime-local" class="form-control" value="<?=$row[2]?>" required>
             </div>
         </div>
         <br>
