@@ -13,8 +13,7 @@
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/fines') ? 'active' : null ?>" href="/fines">Fines</a>
             </div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link <?= $_SERVER['REQUEST_URI'] === '/login' ? 'active' : null ?>" href="/login">Login</a>
-                <a class="nav-item nav-link <?= $_SERVER['REQUEST_URI'] === '/register' ? 'active' : null ?>" href="/register">Register</a>
+                <a class="nav-item nav-link" href="/process.php?logout=true">Register</a>
             </div>
         </div>
     </div>
