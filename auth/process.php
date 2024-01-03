@@ -4,13 +4,13 @@ require_once "./../config.php";
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['register'])) {
-   // register
+   // Register
     $userId = $_POST['user_id'];
     $email = $_POST['email'];
     $firstName = $_POST['firstname'];
     $lastName = $_POST['lastname'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO user (user_id, email, firstname, lastname, username, password) VALUES ('$userId', '$email', '$firstName', 
     '$lastName', '$username', '$password')";
