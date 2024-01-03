@@ -42,25 +42,24 @@ require_once "process.php";
     <table class="table">
         <thead class="table-light">
             <tr>
-                <th>Fine ID</th>
-                <th>Member ID</th>
-                <th>Member Name</th>
-                <th>Book Name</th>
-                <th>Fine Amount</th>
-                <th>Date Modified</th>
-                <th>Action</th>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Password</th>
+                
             </tr>
         </thead>
         <tbody>
         <?php if ($result->num_rows > 0) { ?>
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <tr>
-                    <td><?= $row['fine_id'] ?></td>
-                    <td><?= $row['member_id'] ?></td>
-                    <td><?= $row['first_name']." ".$row['last_name'] ?></td>
-                    <td><?= $row['book_name'] ?></td>
-                    <td>Rs.<?= number_format($row['fine_amount']) ?></td>
-                    <td><?= $row['fine_date_modified'] ?></td>
+                    <td><?= $row['user_id'] ?></td>
+                    <td><?= $row['email'] ?></td>
+                    <td><?= $row['firstname']." ".$row['lastname'] ?></td>
+                    <td><?= $row['username'] ?></td>
+                    <td><?= $row['password'] ?></td>
                     <td>
                         <a href="/fines/edit.php?fineId=<?= $row['fine_id'] ?>" class="btn btn-sm btn-warning">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
