@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,19 +39,25 @@
   </head>
 <body class="text-center">
   <main class="form-signin">
-    <form action="process.php?login=true" method="POST">
-      <h1 class="h3 mb-3 fw-normal">Staff Login</h1>
+    <div class="d-flex justify-content-center">
+        <div class="col-4 w-100">
+            <?php include './../shared/alert.php'; ?>
 
-      <div class="form-floating">
-        <input type="text" class="form-control" id="floatingInput" placeholder="user name">
-        <label for="floatingInput">Username</label>
+            <form action="process.php?login=true" method="POST">
+              <h1 class="h3 mb-3 fw-normal">Staff Login</h1>
+
+              <div class="form-floating">
+                <input type="text" class="form-control" id="username" name="username" placeholder="user name">
+                <label for="username">Username</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="password">Password</label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+            </form>
       </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-    </form>
+    </div>
   </main>
 </body>
 </html>

@@ -32,28 +32,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['register'])) {
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['login'])) {
-   // Login
-   $userId = $_POST['user_id'];
-   $email = $_POST['email'];
-   $firstName = $_POST['firstname'];
-   $lastName = $_POST['lastname'];
    $username = $_POST['username'];
    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-   $sql = "UPDATE user SET user_id = '$userID', email = '$email', firstname = '$firstName', lastname = '$lastName', username = '$username' , password = '$password'
-    WHERE fuser_id = '$fuserID'";
-
    try {
-       $database->query($sql);
+        $sql = "SELECT * FROM user WHERE username = '$username'";
+        $result = $database->query($sql);
 
-       $_SESSION['message'] = "User updated successfully.";
-       $_SESSION['message_type'] = "success";
+        $row = $result->fetch_row();
+
+        $hashedPassword = $row[5];
+
+        if(password_verify($password, $hashedPassword)) {
+                $_SESSION['message'] = "Login success.";
+                $_SESSION['message_type'] = "success";
+
+                header("Location: /books");
+        } else {
+                $_SESSION['message'] = "Login failed.";
+                $_SESSION['message_type'] = "danger";
+        }
    } catch (Exception $e) {
        $_SESSION['message'] = $e->getMessage();
        $_SESSION['message_type'] = "danger";
    }
 
-   header("Location: /auth");
+   header("Location: /auth/login.php");
 }
 
 if (isset($_GET['delete'])) {
