@@ -11,5 +11,5 @@ session_start();
 if (! isset($_SESSION['username'])) {
     header('Location: /auth/login.php');
 } else {
-    header('Location: /books');
+    header('Location: /books');
 }
