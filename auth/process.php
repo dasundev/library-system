@@ -14,18 +14,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['register'])) {
 
     $sql = "INSERT INTO user (user_id, email, first_name, last_name, username, password) VALUES ('$userId', '$email', '$firstName', '$lastName', '$username', '$password')";
 
+
     try {
         $database->query($sql);
 
         $_SESSION['message'] = "User registration successfully. You can login now!";
         $_SESSION['message_type'] = "success";
+
+        header("Location: /auth/login.php");
     } catch (Exception $e) {
         $_SESSION['message'] = $e->getMessage();
         $_SESSION['message_type'] = "danger";
-    }
 
-    header("Location: /auth/register.php");
+        header("Location: /auth/register.php");
+    }
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['create'])) {
     // Register
