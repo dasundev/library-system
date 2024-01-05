@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
 }
 
 if (isset($_GET['delete'])) {
-    $bookId = $_GET['userId'];
+    $userId = $_GET['userId'];
 
     $sql = "DELETE FROM user WHERE user_id = '$userId'";
 
