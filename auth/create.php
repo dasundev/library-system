@@ -52,7 +52,7 @@ if (! isset($_SESSION['username'])) {
                 <input id="email" name="email" type="email" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="firstname" class="form-label">First  Name</label>
+                <label for="firstname" class="form-label">First Name</label>
                 <input id="firstname" name="first_name" type="text" class="form-control" required>
             </div>
             <div class="col-lg-5 mb-3">
