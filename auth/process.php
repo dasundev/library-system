@@ -3,9 +3,6 @@ require_once "./../config.php";
 
 session_start();
 
-$_SESSION['message'] = "User registration successfully.";
-$_SESSION['message_type'] = "success";
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['register'])) {
    // Register
     $userId = $_POST['user_id'];
@@ -33,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['register'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['login'])) {
    $username = $_POST['username'];
-   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+   $password = $_POST['password'];
 
    try {
         $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -43,38 +40,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['login'])) {
 
         $hashedPassword = $row[5];
 
-        if(password_verify($password, $hashedPassword)) {
-                $_SESSION['message'] = "Login success.";
-                $_SESSION['message_type'] = "success";
+        $isPasswordVerified = password_verify($password, $hashedPassword);
+
+        if($isPasswordVerified) {
+                $_SESSION['username'] = $username;
 
                 header("Location: /books");
         } else {
                 $_SESSION['message'] = "Login failed.";
                 $_SESSION['message_type'] = "danger";
+
+                header("Location: /auth/login.php");
         }
    } catch (Exception $e) {
        $_SESSION['message'] = $e->getMessage();
        $_SESSION['message_type'] = "danger";
-   }
 
+       header("Location: /auth/login.php");
+   }
+}
+
+if (isset($_GET['logout'])) {
+   unset($_SESSION['username']);
    header("Location: /auth/login.php");
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
+    $userId = $_POST['user_id'];
+    $email = $_POST['email'];
+    $firstName = $_POST['first_name'];
+    $lastName = $_POST['last_name'];
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $sql = "UPDATE user SET email = '$email', first_name = '$firstName', last_name = '$lastName', username = '$username', password = 'password' WHERE user_id = '$userId'";
+
+    try {
+        $database->query($sql);
+
+        $_SESSION['message'] = "User updated successfully.";
+        $_SESSION['message_type'] = "success";
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->getMessage();
+        $_SESSION['message_type'] = "danger";
+    }
+
+    header("Location: /auth/user");
+}
+
 if (isset($_GET['delete'])) {
-   // Logout
-   $userID = $_GET['userId'];
+    $bookId = $_GET['userId'];
 
-   $sql = "DELETE FROM user WHERE user_id = '$userID'";
+    $sql = "DELETE FROM user WHERE user_id = '$userId'";
 
-   try {
-       $database->query($sql);
+    try {
+        $database->query($sql);
 
-       $_SESSION['message'] = "User deleted successfully.";
-       $_SESSION['message_type'] = "success";
-   } catch (Exception $e) {
-       $_SESSION['message'] = $e->getMessage();
-       $_SESSION['message_type'] = "danger";
-   }
+        $_SESSION['message'] = "User deleted successfully.";
+        $_SESSION['message_type'] = "success";
+    } catch (Exception $e) {
+        $_SESSION['message'] = $e->getMessage();
+        $_SESSION['message_type'] = "danger";
+    }
 
-   header("Location: /auth");
+    header("Location: /auth/user");
 }
