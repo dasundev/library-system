@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['create'])) {
          $_SESSION['message_type'] = "danger";
      }
  
-     header("Location: /auth/user");
+     header("Location: /users");
  }
 
  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['create'])) {
         $_SESSION['message_type'] = "danger";
     }
 
-    header("Location: /auth/user");
+    header("Location: /users");
 }
 
 if (isset($_GET['delete'])) {
@@ -65,5 +65,5 @@ if (isset($_GET['delete'])) {
         $_SESSION['message_type'] = "danger";
     }
 
-    header("Location: /auth/user");
+    header("Location: /users");
 }
