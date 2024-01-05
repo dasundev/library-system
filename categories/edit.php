@@ -1,5 +1,10 @@
 <?php
 require_once "process.php";
+
+// Check user session exists
+if (! isset($_SESSION['username'])) {
+    header('Location: /auth/login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
