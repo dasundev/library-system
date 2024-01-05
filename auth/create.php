@@ -45,7 +45,7 @@ if (! isset($_SESSION['username'])) {
         <div class="row">
             <div class="col-lg-5 mb-3">
                 <label for="userId" class="form-label">User ID</label>
-                <input id="userId" name="user_id" type="text" class="form-control" required>
+                <input id="userId" name="user_id" type="text" class="form-control" placeholder="Enter user ID (e.g.'U001')" required>
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="email" class="form-label">Email</label>
