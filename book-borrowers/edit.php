@@ -37,9 +37,9 @@ require_once "process.php";
     </div>
 
     <?php
-    $borrow_Id = $_GET['borrow_id'];
+    $book_Id = $_GET['book_id'];
 
-    $sql = "SELECT * FROM bookborrower WHERE borrow_id = '$borrow_Id'";
+    $sql = "SELECT * FROM bookborrower WHERE book_id = '$book_Id'";
 
     $result = $database->query($sql) or die($database->error);
 
