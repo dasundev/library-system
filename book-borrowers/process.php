@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
     $borrow_Status = $_POST['borrow_status'];
     $borrower_Date = $_POST['borrower_date_modified'];
 
-    $sql = "UPDATE bookborrower SET book_id = '$book_Id', member_id = '$member_Id', borrow_status ='$borrow_Status', borrower_Date='$borrower_date_modified' WHERE borrow_id = '$borrow_Id'";
+    $sql = "UPDATE bookborrower SET book_id = '$book_Id', member_id = '$member_Id', borrow_status ='$borrow_Status', borrower_date_modified ='$borrower_Date' WHERE borrow_id = '$borrow_Id'";
     
     try {
         $database->query($sql);

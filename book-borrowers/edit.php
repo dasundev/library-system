@@ -44,39 +44,36 @@ require_once "process.php";
     $result = $database->query($sql) or die($database->error);
 
     $row = $result->fetch_row();
-
-    $sql = "SELECT * FROM bookborrower";
-
-    $categoryResult = $database->query($sql) or die($database->error);
+ 
     ?>
 
     <form action="process.php?update=true&borrow_id=<?= $row[0] ?>" method="post">
         <div class="row">
             <div class="col-lg-5 mb-3">
-                <label for="borrow_id" class="form-label">Borrow_ID</label>
-                <input id="borrow_id" name="borrow_book_id" type="text" class="form-control" value="<?= $row[0] ?>" pattern="BR\d{3}" readonly>
+                <label for="borrow_id" class="form-label">Borrow ID</label>
+                <input id="borrow_id" name="borrow_id" type="text" class="form-control" value="<?= $row[0] ?>" pattern="BR\d{3}" readonly>
             </div>
             <div class="col-lg-5 mb-3">
-                <label for="book_id" class="form-label">Book Name</label>
-                <input id="book_id" name="Book_name" type="text" class="form-control" value="<?= $row[1] ?>" required>
+                <label for="book_id" class="form-label">BookId</label>
+                <input id="book_id" name="book_id" type="text" class="form-control" value="<?= $row[1] ?>" required>
             </div>
 
             <div class="col-lg-5 mb-3">
-                <label for="member_id" class="form-label">Book Name</label>
-                <input id="member_id" name="member_Name" type="text" class="form-control" value="<?=$row[2] ?>" required>
+                <label for="member_id" class="form-label">MemberId</label>
+                <input id="member_id" name="member_id" type="text" class="form-control" value="<?=$row[2] ?>" required>
             </div>
 
             <div class="col-lg-5 mb-3"> 
                 <label for="borrow_status" class="form-label">Borrow Status</label> 
-                <select id="borrow_status" name="borrow_Status" class="form-control"  value="<?=$row[3] ?>"required>
+                <select id="borrow_status" name="borrow_status" class="form-control"  value="<?=$row[3] ?>"required>
                     <option value="available">Available</option>
                      <option value="borrowed">Borrowed</option>
                 </select>
             </div>
 
             <div class="col-lg-5 mb-3">
-                <label for="borrower_date_modified" class="form-label">Date</label>
-                <input id="borrower_date_modified" name="Borrower_date" type="datetime-local" class="form-control" value="<?=$row[4] ?>" required>
+                <label for="borrower_date_modified" class="form-label">Modified Date</label>
+                <input id="borrower_date_modified" name="borrower_date_modified" type="datetime-local" class="form-control" value="<?=$row[4] ?>" required>
             </div>
 
         </div>

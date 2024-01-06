@@ -61,7 +61,7 @@ require_once "process.php";
 
             <div class="col-lg-5 mb-3"> 
                 <label for="borrow_status" class="form-label">Borrow Status</label> 
-                <select id="borrow_status" name="borrow_Status" class="form-control" required>
+                <select id="borrow_status" name="borrow_status" class="form-control" required>
                     <option value="available">Available</option>
                     <option value="borrowed">Borrowed</option>
                 </select>
