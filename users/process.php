@@ -33,9 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['create'])) {
     $firstName = $_POST['first_name'];
     $lastName = $_POST['last_name'];
     $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $sql = "UPDATE user SET email = '$email', first_name = '$firstName', last_name = '$lastName', username = '$username', password = 'password' WHERE user_id = '$userId'";
+     if (!empty($_POST['password'])) {
+         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+         $sql = "UPDATE user SET email = '$email', first_name = '$firstName', last_name = '$lastName', username = '$username', password = '$password' WHERE user_id = '$userId'";
+     } else {
+         $sql = "UPDATE user SET email = '$email', first_name = '$firstName', last_name = '$lastName', username = '$username' WHERE user_id = '$userId'";
+     }
 
     try {
         $database->query($sql);

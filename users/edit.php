@@ -75,7 +75,7 @@ if (! isset($_SESSION['username'])) {
             </div>
             <div class="col-lg-5 mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input id="password" name="password" type="password" max="8" class="form-control" value="<?= $row[5] ?>" required>
+                <input id="password" name="password" type="password" max="8" class="form-control">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
