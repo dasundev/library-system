@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['update'])) {
 }
 
 if (isset($_GET['delete'])) {
-    $borrow_Id = $_GET['borrow_id'];
+    $borrow_Id = $_GET['borrow_Id'];
 
     $sql = "DELETE FROM bookborrower WHERE borrow_id = '$borrow_Id'";
 
