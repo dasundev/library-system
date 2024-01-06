@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['create'])) {
     $borrow_Status = $_POST['borrow_status'];
     $borrower_Date = $_POST['borrower_date_modified'];
 
-    $sql = "INSERT INTO bookborrower (borrow_id,book_id,member_id,borrow_status,borrower_date_modified) VALUES ('$borrow_Id', '$book_Id', '$member_Id','$borrow_Status','$borrower_date')";
+    $sql = "INSERT INTO bookborrower (borrow_id,book_id,member_id,borrow_status,borrower_date_modified) VALUES ('$borrow_Id', '$book_Id', '$member_Id','$borrow_Status','$borrower_Date')";
 
     try {
         $database->query($sql);

@@ -45,31 +45,31 @@ require_once "process.php";
     <form action="process.php?create=true" method="post">
         <div class="row"> 
             <div class="col-lg-5 mb-3">
-                <label for="borrow_id" class="form-label">Borrow Book ID</label>
-                <input id="borrow_id" name="borrow_book_id" type="text" class="form-control" pattern="BR\d{3}" required>
+                <label for="borrow_id" class="form-label">Borrow ID</label>
+                <input id="borrow_id" name="borrow_id" type="text" class="form-control" pattern="BR\d{3}" required>
             </div>
 
             <div class="col-lg-5 mb-3">
-                <label for="book_id" class="form-label">Book Name</label>
-                <input id="book_id" name="Book_Name" type="text" class="form-control" required>
+                <label for="book_id" class="form-label">BookID</label>
+                <input id="book_id" name="book_id" type="text" class="form-control" required>
             </div>
 
             <div class="col-lg-5 mb-3">
-                <label for="member_id" class="form-label">Member Name</label>
-                <input id="member_id" name="member_Name" type="text" class="form-control" required>
+                <label for="member_id" class="form-label">MemberID</label>
+                <input id="member_id" name="member_id" type="text" class="form-control" required>
             </div>
 
             <div class="col-lg-5 mb-3"> 
                 <label for="borrow_status" class="form-label">Borrow Status</label> 
                 <select id="borrow_status" name="borrow_Status" class="form-control" required>
                     <option value="available">Available</option>
-                     <option value="borrowed">Borrowed</option>
+                    <option value="borrowed">Borrowed</option>
                 </select>
             </div>
               
             <div class="col-lg-5 mb-3">
-                <label for="borrower_date_modified" class="form-label">Date</label>
-                <input id="borrower_date_modified" name="Borrower_date" type="datetime-local" class="form-control" required>
+                <label for="borrower_date_modified" class="form-label">Modified Date</label>
+                <input id="borrower_date_modified" name="borrower_date_modified" type="datetime-local" class="form-control" required>
             </div>
 
 

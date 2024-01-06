@@ -29,19 +29,24 @@ require_once "process.php";
     </div>
 
     <?php
-    $sql = "SELECT * FROM bookborrower JOIN book ON book.book_id = bookborrower.book_id JOIN member ON member.member_id = bookborrower.member_id";
+    $sql = "SELECT bookborrower.borrow_id, bookborrower.book_id, bookborrower.member_id, bookborrower.borrow_status,
+     bookborrower.borrower_date_modified FROM bookborrower
+     JOIN book ON bookborrower.book_id = book.book_id 
+     JOIN member ON bookborrower.member_id = member.member_id";
 
     $result = $database->query($sql) or die($database->error);
     ?>
 
+
+
     <table class="table">
         <thead class="table-light">
             <tr>
-                <th>Borrow Book ID</th>
-                <th>Book Name</th>
-                <th>Member Name</th>
+                <th>Borrow ID</th>
+                <th>BookID</th>
+                <th>MemberID</th>
                 <th>Borrow Status</th>
-                <th>Date Modified</th>
+                <th>Modified Date</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -50,8 +55,8 @@ require_once "process.php";
             <?php while ($row = $result->fetch_assoc()) { ?>
                 <tr>
                     <td><?= $row['borrow_id'] ?></td>
-                    <td><?= $row['book_name'] ?></td>
-                    <td><?= $row['first_name']." ".$row['last_name'] ?></td>
+                    <td><?= $row['book_id'] ?></td>
+                    <td><?= $row['member_id'] ?></td>
                     <td><?= $row['borrow_status'] ?></td>
                     <td><?= $row['borrower_date_modified'] ?></td>
                     <td>
