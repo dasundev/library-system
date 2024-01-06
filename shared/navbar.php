@@ -11,10 +11,10 @@
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/members') ? 'active' : null ?>" href="/members">Members</a>
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/borrowed-books') ? 'active' : null ?>" href="/borrowed-books">Borrowed Books</a>
                 <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/fines') ? 'active' : null ?>" href="/fines">Fines</a>
+                <a class="nav-item nav-link <?= str_contains($_SERVER['REQUEST_URI'], '/users') ? 'active' : null ?>" href="/users">Users</a>
             </div>
             <div class="navbar-nav">
-                <a class="nav-item nav-link <?= $_SERVER['REQUEST_URI'] === '/login' ? 'active' : null ?>" href="/login">Login</a>
-                <a class="nav-item nav-link <?= $_SERVER['REQUEST_URI'] === '/register' ? 'active' : null ?>" href="/register">Register</a>
+                <a class="nav-item nav-link" href="./../auth/process.php?logout=true">Logout</a>
             </div>
         </div>
     </div>
